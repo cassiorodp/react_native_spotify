@@ -1,55 +1,35 @@
 import { CustomText } from '@/components/CustomText';
 import { StyleSheet, View } from 'react-native';
-import { makeRedirectUri, useAuthRequest } from 'expo-auth-session';
+import { useAuthRequest, exchangeCodeAsync } from 'expo-auth-session';
 import { Button } from '@/components/Button';
 import { useEffect } from 'react';
-import { secureStore } from '@/utils/';
-import { add } from 'date-fns';
+import { storeToken } from '@/utils/';
 import { router } from 'expo-router';
-import { config } from '@/env/config';
-
-const discovery = {
-  authorizationEndpoint: 'https://accounts.spotify.com/authorize',
-  tokenEndpoint: 'https://accounts.spotify.com/api/token',
-};
+import { discovery, endpointConfig } from '@/env/config';
 
 export default function Index() {
   const [request, response, promptAsync] = useAuthRequest(
-    {
-      clientId: '1c9d0c607a51456895dd09cd729c7212',
-      scopes: [
-        'user-read-email',
-        'user-library-read',
-        'user-read-recently-played',
-        'user-top-read',
-        'playlist-read-private',
-        'playlist-read-collaborative',
-        'playlist-modify-public',
-      ],
-      usePKCE: false,
-      redirectUri: makeRedirectUri({
-        scheme: 'reactspotify',
-      }),
-    },
+    endpointConfig,
     discovery
   );
 
   useEffect(() => {
-    const saveToken = async () => {
+    const handleRedirect = async () => {
       if (response?.type === 'success') {
         const { code } = response.params;
-        if (code) {
-          await secureStore(config.tokenStoreKey, code);
-          await secureStore(
-            config.tokenStoreExpiryKey,
-            add(new Date(), { hours: 1 }).toISOString()
-          );
-          router.navigate('(tabs)');
+        const tokenResponse = await exchangeCodeAsync(
+          { ...endpointConfig, code },
+          discovery
+        );
+
+        if (tokenResponse.accessToken) {
+          await storeToken(tokenResponse);
+          router.replace('(tabs)');
         }
       }
     };
 
-    saveToken();
+    handleRedirect();
   }, [response]);
 
   return (
