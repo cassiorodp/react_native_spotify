@@ -1,17 +1,11 @@
 import { CustomText } from '@/components/CustomText';
 import { StyleSheet, View } from 'react-native';
-import {
-  makeRedirectUri,
-  useAuthRequest,
-  exchangeCodeAsync,
-  TokenResponse,
-} from 'expo-auth-session';
+import { useAuthRequest, exchangeCodeAsync } from 'expo-auth-session';
 import { Button } from '@/components/Button';
 import { useEffect } from 'react';
-import { secureStore } from '@/utils/';
-import { add, fromUnixTime } from 'date-fns';
+import { storeToken } from '@/utils/';
 import { router } from 'expo-router';
-import { config, discovery, endpointConfig } from '@/env/config';
+import { discovery, endpointConfig } from '@/env/config';
 
 export default function Index() {
   const [request, response, promptAsync] = useAuthRequest(
@@ -20,7 +14,7 @@ export default function Index() {
   );
 
   useEffect(() => {
-    const saveToken = async () => {
+    const handleRedirect = async () => {
       if (response?.type === 'success') {
         const { code } = response.params;
         const tokenResponse = await exchangeCodeAsync(
@@ -29,25 +23,13 @@ export default function Index() {
         );
 
         if (tokenResponse.accessToken) {
-          await secureStore(config.tokenStoreKey, tokenResponse.accessToken);
-
-          if (tokenResponse.refreshToken)
-            await secureStore(
-              config.refreshTokenStoreKey,
-              tokenResponse.refreshToken
-            );
-          await secureStore(
-            config.tokenStoreExpiryKey,
-            add(fromUnixTime(tokenResponse.issuedAt), {
-              seconds: tokenResponse.expiresIn,
-            }).toISOString()
-          );
-          router.navigate('(tabs)');
+          await storeToken(tokenResponse);
+          router.replace('(tabs)');
         }
       }
     };
 
-    saveToken();
+    handleRedirect();
   }, [response]);
 
   return (
