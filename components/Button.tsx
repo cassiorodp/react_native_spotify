@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     marginTop: 10,
     paddingHorizontal: 40,
-    paddingVertical: 10,
+    paddingVertical: 8,
   },
 });

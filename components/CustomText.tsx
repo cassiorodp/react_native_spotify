@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     lineHeight: 32,
   },
   subtitle: {
-    fontSize: 20,
+    fontSize: 24,
     fontFamily: 'Rubik-Medium',
   },
   link: {
@@ -63,6 +63,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 16,
-    fontFamily: 'Rubik-SemiBold',
+    fontFamily: 'Rubik-Bold',
   },
 });
