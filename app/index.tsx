@@ -1,27 +1,65 @@
 import { CustomText } from '@/components/CustomText';
-import { useTheme } from '@react-navigation/native';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { makeRedirectUri, useAuthRequest } from 'expo-auth-session';
+import { Button } from '@/components/Button';
+import { useEffect } from 'react';
+import { secureStore } from '@/utils/';
+import { add } from 'date-fns';
+import { router } from 'expo-router';
+import { config } from '@/env/config';
+
+const discovery = {
+  authorizationEndpoint: 'https://accounts.spotify.com/authorize',
+  tokenEndpoint: 'https://accounts.spotify.com/api/token',
+};
 
 export default function Index() {
-  const { colors } = useTheme();
+  const [request, response, promptAsync] = useAuthRequest(
+    {
+      clientId: '1c9d0c607a51456895dd09cd729c7212',
+      scopes: [
+        'user-read-email',
+        'user-library-read',
+        'user-read-recently-played',
+        'user-top-read',
+        'playlist-read-private',
+        'playlist-read-collaborative',
+        'playlist-modify-public',
+      ],
+      usePKCE: false,
+      redirectUri: makeRedirectUri({
+        scheme: 'reactspotify',
+      }),
+    },
+    discovery
+  );
 
-  const handlePress = () => {};
+  useEffect(() => {
+    const saveToken = async () => {
+      if (response?.type === 'success') {
+        const { code } = response.params;
+        if (code) {
+          await secureStore(config.tokenStoreKey, code);
+          await secureStore(
+            config.tokenStoreExpiryKey,
+            add(new Date(), { hours: 1 }).toISOString()
+          );
+          router.navigate('(tabs)');
+        }
+      }
+    };
+
+    saveToken();
+  }, [response]);
 
   return (
     <View style={styles.container}>
       <CustomText>Entre com sua conta Spotify</CustomText>
-      <TouchableOpacity
-        activeOpacity={0.8}
-        style={[
-          styles.button,
-          {
-            backgroundColor: colors.primary,
-          },
-        ]}
-        onPress={handlePress}
-      >
-        <CustomText type="button">Entrar</CustomText>
-      </TouchableOpacity>
+      <Button
+        disabled={!request}
+        onPress={() => promptAsync()}
+        title="Entrar"
+      />
     </View>
   );
 }
@@ -31,20 +69,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  text: {
-    fontWeight: '500',
-    fontSize: 14,
-  },
-  button: {
-    borderRadius: 100,
-    marginTop: 10,
-    paddingHorizontal: 40,
-    paddingVertical: 10,
-  },
-  buttonText: {
-    fontWeight: '700',
-    textAlign: 'center',
-    fontSize: 16,
   },
 });
