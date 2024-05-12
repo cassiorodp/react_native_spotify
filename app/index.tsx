@@ -1,36 +1,21 @@
 import { CustomText } from '@/components/CustomText';
 import { StyleSheet, View } from 'react-native';
-import { makeRedirectUri, useAuthRequest } from 'expo-auth-session';
+import {
+  makeRedirectUri,
+  useAuthRequest,
+  exchangeCodeAsync,
+  TokenResponse,
+} from 'expo-auth-session';
 import { Button } from '@/components/Button';
 import { useEffect } from 'react';
 import { secureStore } from '@/utils/';
-import { add } from 'date-fns';
+import { add, fromUnixTime } from 'date-fns';
 import { router } from 'expo-router';
-import { config } from '@/env/config';
-
-const discovery = {
-  authorizationEndpoint: 'https://accounts.spotify.com/authorize',
-  tokenEndpoint: 'https://accounts.spotify.com/api/token',
-};
+import { config, discovery, endpointConfig } from '@/env/config';
 
 export default function Index() {
   const [request, response, promptAsync] = useAuthRequest(
-    {
-      clientId: '1c9d0c607a51456895dd09cd729c7212',
-      scopes: [
-        'user-read-email',
-        'user-library-read',
-        'user-read-recently-played',
-        'user-top-read',
-        'playlist-read-private',
-        'playlist-read-collaborative',
-        'playlist-modify-public',
-      ],
-      usePKCE: false,
-      redirectUri: makeRedirectUri({
-        scheme: 'reactspotify',
-      }),
-    },
+    endpointConfig,
     discovery
   );
 
@@ -38,11 +23,24 @@ export default function Index() {
     const saveToken = async () => {
       if (response?.type === 'success') {
         const { code } = response.params;
-        if (code) {
-          await secureStore(config.tokenStoreKey, code);
+        const tokenResponse = await exchangeCodeAsync(
+          { ...endpointConfig, code },
+          discovery
+        );
+
+        if (tokenResponse.accessToken) {
+          await secureStore(config.tokenStoreKey, tokenResponse.accessToken);
+
+          if (tokenResponse.refreshToken)
+            await secureStore(
+              config.refreshTokenStoreKey,
+              tokenResponse.refreshToken
+            );
           await secureStore(
             config.tokenStoreExpiryKey,
-            add(new Date(), { hours: 1 }).toISOString()
+            add(fromUnixTime(tokenResponse.issuedAt), {
+              seconds: tokenResponse.expiresIn,
+            }).toISOString()
           );
           router.navigate('(tabs)');
         }
