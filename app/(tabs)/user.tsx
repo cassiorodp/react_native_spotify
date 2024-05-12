@@ -5,10 +5,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useQuery } from 'react-query';
 import { routeTags } from '@/env/config';
 import { getUserData } from '@/api/endpoints';
-import { Image } from 'expo-image';
 import { Button } from '@/components/Button';
 import { clearSecureStore } from '@/utils';
 import { router } from 'expo-router';
+import Image from '@/components/Image';
 
 export default function User() {
   const { data } = useQuery(routeTags.user, getUserData);
@@ -24,7 +24,7 @@ export default function User() {
     <SafeAreaView style={styles.container}>
       <View style={styles.userContainer}>
         <View style={styles.imageContainer}>
-          <Image style={styles.image} source={profileImage} />
+          <Image width={128} height={128} src={profileImage} />
         </View>
         <CustomText type="subtitle">{userName}</CustomText>
       </View>
