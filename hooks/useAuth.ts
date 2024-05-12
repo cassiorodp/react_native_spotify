@@ -7,9 +7,9 @@ const useAuth = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const getAuthToken = async () => {
-      const token = await getSecureStore(config.tokenStoreKey);
-      const expiresIn = await getSecureStore(config.tokenStoreExpiryKey);
+    const getAuthToken = () => {
+      const token = getSecureStore(config.tokenStoreKey);
+      const expiresIn = getSecureStore(config.tokenStoreExpiryKey);
       if (token && expiresIn && isBefore(new Date(), new Date(expiresIn))) {
         setIsAuthenticated(true);
       }
