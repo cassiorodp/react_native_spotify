@@ -30,15 +30,17 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Artistas',
-          tabBarIcon: ({ color }) => <TabBarIcon name="disc" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="disc-outline" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
           title: 'Playlists',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name="play" color={color} />
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="play-outline" color={color} />
           ),
         }}
       />
@@ -46,8 +48,8 @@ export default function TabLayout() {
         name="user"
         options={{
           title: 'Perfil',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name="person" color={color} />
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="person-outline" color={color} />
           ),
         }}
       />
