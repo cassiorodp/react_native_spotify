@@ -12,7 +12,8 @@
     "testDebug": "jest -o --watch --coverage=false",
     "testFinal": "jest",
     "lint": "expo lint",
-    "lint-fix": "eslint --fix ."
+    "lint-fix": "eslint --fix .",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
