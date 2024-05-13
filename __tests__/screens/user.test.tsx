@@ -1,8 +1,8 @@
 import { fireEvent, waitFor } from '@testing-library/react-native';
 import { clearSecureStore } from '@/utils';
-import User from './user';
 import { router } from 'expo-router';
 import { render } from '@/utils/test-utils';
+import User from '@/app/(tabs)/user';
 
 jest.mock('expo-router', () => ({
   router: {
