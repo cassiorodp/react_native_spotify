@@ -6,7 +6,7 @@ export const config = {
   refreshTokenStoreKey: 'refresh_token',
   baseUrl: 'https://api.spotify.com',
   clientId: '16094f2f37d2423980cd818cebdf281b',
-  clientSecret: 'ae902be12be04712834fff4377dc4c4e',
+  clientSecret: process.env.EXPO_PUBLIC_SPOTIFY_CLIENT_SECRET,
 };
 
 export const discovery = {
