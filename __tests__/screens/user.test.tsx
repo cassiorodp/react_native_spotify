@@ -28,6 +28,10 @@ beforeEach(() => {
 });
 
 describe('User screen', () => {
+  it('renders the matching snapshot', () => {
+    const { toJSON } = render(<User />);
+    expect(toJSON()).toMatchSnapshot();
+  });
   it('renders user data and logs out on button press', async () => {
     const { getByText, findByText } = render(<User />);
 
