@@ -7,7 +7,7 @@ export const config = {
   tokenStoreKey: 'access_token',
   tokenStoreExpiryKey: 'expires_in',
   refreshTokenStoreKey: 'refresh_token',
-  baseUrl: 'https://api.spotify.com',
+  baseUrl: 'https://api.spotify.com/v1',
   clientId: '16094f2f37d2423980cd818cebdf281b',
   clientSecret: process.env.EXPO_PUBLIC_SPOTIFY_CLIENT_SECRET,
 };
