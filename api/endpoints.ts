@@ -54,3 +54,17 @@ export const getUserPlaylists = async ({
   });
   return data;
 };
+
+export const postPlaylist = async (payload: { name: string }) => {
+  const userData = await getUserData();
+
+  try {
+    const data = await axiosInstance.post(
+      `/users/${userData.data.id}/playlists`,
+      {
+        name: payload.name,
+      }
+    );
+    return data;
+  } catch (error) {}
+};
