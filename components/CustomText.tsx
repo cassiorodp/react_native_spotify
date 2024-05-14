@@ -5,6 +5,7 @@ import { useTheme } from '@react-navigation/native';
 type CustomTextProps = React.ComponentProps<typeof Text> & {
   type?:
     | 'default'
+    | 'small'
     | 'title'
     | 'defaultSemiBold'
     | 'subtitle'
@@ -24,6 +25,7 @@ export function CustomText({
       style={[
         { color: colors.text },
         type === 'default' ? styles.default : undefined,
+        type === 'small' ? styles.small : undefined,
         type === 'title' ? styles.title : undefined,
         type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
         type === 'subtitle' ? styles.subtitle : undefined,
@@ -42,6 +44,11 @@ const styles = StyleSheet.create({
   default: {
     fontSize: 16,
     lineHeight: 24,
+    fontFamily: 'Rubik-Regular',
+  },
+  small: {
+    fontSize: 12,
+    lineHeight: 16,
     fontFamily: 'Rubik-Regular',
   },
   defaultSemiBold: {

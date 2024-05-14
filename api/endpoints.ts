@@ -38,3 +38,33 @@ export const getArtistAlbunsData = async ({
   });
   return data;
 };
+
+export const getUserPlaylists = async ({
+  limit = 10,
+  page,
+}: {
+  limit?: number;
+  page: number;
+}) => {
+  const data = await axiosInstance.get('/me/playlists', {
+    params: {
+      limit,
+      offset: page * limit,
+    },
+  });
+  return data;
+};
+
+export const postPlaylist = async (payload: { name: string }) => {
+  const userData = await getUserData();
+
+  try {
+    const data = await axiosInstance.post(
+      `/users/${userData.data.id}/playlists`,
+      {
+        name: payload.name,
+      }
+    );
+    return data;
+  } catch (error) {}
+};

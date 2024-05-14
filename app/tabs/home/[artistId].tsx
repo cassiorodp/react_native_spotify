@@ -5,6 +5,7 @@ import AlbumList from '@/components/AlbumList';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ArtistHeader from '@/components/ArtistHeader';
 import { spacing } from '@/constants/config';
+import SafeAreaViewWithPadding from '@/components/SafeAreaViewWithPadding';
 
 export default function Albuns() {
   const { artistId, artistName, artistImage } = useLocalSearchParams<{
@@ -16,16 +17,9 @@ export default function Albuns() {
   if (!artistId || !artistName || !artistImage) return null;
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaViewWithPadding>
       <ArtistHeader artistName={artistName} artistImage={artistImage} />
       <AlbumList artistId={artistId} />
-    </SafeAreaView>
+    </SafeAreaViewWithPadding>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: spacing.lg,
-    flex: 1,
-  },
-});
