@@ -6,10 +6,13 @@ describe('ArtistItem', () => {
   const artist = {
     name: 'Test Artist',
     images: [{ url: 'https://example.com/image.jpg' }],
+    id: '123',
   };
 
-  it('renders the artist name', () => {
-    const { getByText } = render(<ArtistItem item={artist} />);
-    expect(getByText('Test Artist')).toBeTruthy();
+  it('renders the correct link', () => {
+    const { getByTestId } = render(<ArtistItem item={artist} />);
+    const link = getByTestId('artist-link');
+
+    expect(link.props.href).toContain(`/tabs/home/${artist.id}`);
   });
 });

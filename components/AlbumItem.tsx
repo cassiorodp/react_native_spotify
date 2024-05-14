@@ -1,27 +1,21 @@
-import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { CustomText } from './CustomText';
-import Image from './Image';
-import { spacing } from '@/constants/config';
+import CustomItem from './CustomItem';
+import { format } from 'date-fns';
 
 export default function AlbumItem(props: {
   item: {
     name: string;
     images: { url: string }[];
+    release_date: string;
   };
 }) {
   return (
-    <View style={styles.container}>
-      <Image width={72} height={72} src={props.item.images[0].url} />
-      <CustomText>{props.item.name}</CustomText>
-    </View>
+    <CustomItem
+      imageHeight={72}
+      imageWidth={72}
+      imageSrc={props.item.images[0].url}
+      title={props.item.name}
+      subtitle={format(new Date(props.item.release_date), 'dd/MM/yyyy')}
+    />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.lg,
-  },
-});

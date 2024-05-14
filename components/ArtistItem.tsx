@@ -4,6 +4,7 @@ import { spacing } from '@/constants/config';
 import { CustomText } from './CustomText';
 import Image from './Image';
 import { Link } from 'expo-router';
+import CustomItem from './CustomItem';
 
 export default function ArtistItem(props: {
   item: {
@@ -14,6 +15,7 @@ export default function ArtistItem(props: {
 }) {
   return (
     <Link
+      testID="artist-link"
       href={{
         pathname: '/tabs/home/[artistId]',
         params: {
@@ -23,15 +25,13 @@ export default function ArtistItem(props: {
         },
       }}
     >
-      <View style={styles.container}>
-        <Image
-          width={64}
-          height={64}
-          borderRadius={64}
-          src={props.item.images[0].url}
-        />
-        <CustomText>{props.item.name}</CustomText>
-      </View>
+      <CustomItem
+        imageWidth={64}
+        imageHeight={64}
+        imageBorderRadius={64}
+        imageSrc={props.item.images[0].url}
+        title={props.item.name}
+      />
     </Link>
   );
 }
