@@ -19,7 +19,7 @@ export default function UserHeader(props: { title: string }) {
       {isLoading ? (
         <ActivityIndicator size="small" color={colors.primary} />
       ) : (
-        <Image width={32} height={32} src={profileImage} />
+        <Image width={32} height={32} borderRadius={32} src={profileImage} />
       )}
     </View>
   );

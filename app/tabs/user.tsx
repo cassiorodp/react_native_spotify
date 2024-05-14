@@ -28,7 +28,12 @@ export default function User() {
         {isLoading ? (
           <ActivityIndicator size="large" color={colors.primary} />
         ) : (
-          <Image width={128} height={128} src={profileImage} />
+          <Image
+            width={128}
+            height={128}
+            borderRadius={128}
+            src={profileImage}
+          />
         )}
         <CustomText type="subtitle">{userName}</CustomText>
       </View>
