@@ -5,7 +5,7 @@ import { Button } from '@/components/Button';
 import { useEffect } from 'react';
 import { storeToken } from '@/utils/';
 import { router } from 'expo-router';
-import { discovery, endpointConfig } from '@/env/config';
+import { discovery, endpointConfig } from '@/constants/config';
 
 export default function Index() {
   const [request, response, promptAsync] = useAuthRequest(
@@ -24,7 +24,7 @@ export default function Index() {
 
         if (tokenResponse.accessToken) {
           await storeToken(tokenResponse);
-          router.replace('(tabs)');
+          router.replace('/tabs');
         }
       }
     };

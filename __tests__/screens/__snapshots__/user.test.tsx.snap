@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User screen renders the matching snapshot 1`] = `
+<RNCSafeAreaView
+  edges={
+    {
+      "bottom": "additive",
+      "left": "additive",
+      "right": "additive",
+      "top": "additive",
+    }
+  }
+  style={
+    {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "column",
+        "gap": 16,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <ActivityIndicator
+      color="rgb(0, 122, 255)"
+      size="large"
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "rgb(28, 28, 30)",
+          },
+          undefined,
+          undefined,
+          undefined,
+          {
+            "fontFamily": "Rubik-Medium",
+            "fontSize": 24,
+          },
+          undefined,
+          undefined,
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "backgroundColor": "rgb(0, 122, 255)",
+        "borderRadius": 100,
+        "marginTop": 10,
+        "opacity": 1,
+        "paddingHorizontal": 40,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "rgb(28, 28, 30)",
+          },
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          [
+            {
+              "fontFamily": "Rubik-Bold",
+              "fontSize": 16,
+            },
+            {
+              "color": "rgb(242, 242, 242)",
+            },
+          ],
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      Sair
+    </Text>
+  </View>
+</RNCSafeAreaView>
+`;

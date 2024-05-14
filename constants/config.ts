@@ -1,4 +1,7 @@
 import { makeRedirectUri } from 'expo-auth-session';
+import { Dimensions } from 'react-native';
+
+const { width } = Dimensions.get('window');
 
 export const config = {
   tokenStoreKey: 'access_token',
@@ -34,4 +37,13 @@ export const endpointConfig = {
 
 export const routeTags = {
   user: 'user',
+  artists: 'artists',
+};
+
+export const spacing = {
+  xs: width * 0.01,
+  sm: width * 0.02,
+  md: width * 0.03,
+  lg: width * 0.04,
+  xl: width * 0.05,
 };

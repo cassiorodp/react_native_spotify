@@ -2,7 +2,7 @@ import { fireEvent, waitFor } from '@testing-library/react-native';
 import { clearSecureStore } from '@/utils';
 import { router } from 'expo-router';
 import { render } from '@/utils/test-utils';
-import User from '@/app/(tabs)/user';
+import User from '@/app/tabs/user';
 
 jest.mock('expo-router', () => ({
   router: {
@@ -28,6 +28,10 @@ beforeEach(() => {
 });
 
 describe('User screen', () => {
+  it('renders the matching snapshot', () => {
+    const { toJSON } = render(<User />);
+    expect(toJSON()).toMatchSnapshot();
+  });
   it('renders user data and logs out on button press', async () => {
     const { getByText, findByText } = render(<User />);
 
