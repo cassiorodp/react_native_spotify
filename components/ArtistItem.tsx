@@ -24,7 +24,12 @@ export default function ArtistItem(props: {
       }}
     >
       <View style={styles.container}>
-        <Image width={64} height={64} src={props.item.images[0].url} />
+        <Image
+          width={64}
+          height={64}
+          borderRadius={64}
+          src={props.item.images[0].url}
+        />
         <CustomText>{props.item.name}</CustomText>
       </View>
     </Link>

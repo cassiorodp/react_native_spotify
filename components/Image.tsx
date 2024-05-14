@@ -2,13 +2,17 @@ import { StyleSheet, View } from 'react-native';
 import React from 'react';
 import { Image as ExpoImage } from 'expo-image';
 
-type ProfileImageProps = {
+export default function Image({
+  src,
+  width,
+  height,
+  borderRadius,
+}: {
   src: string;
   width: number;
   height: number;
-};
-
-export default function Image({ src, width, height }: ProfileImageProps) {
+  borderRadius?: number;
+}) {
   return (
     <View
       testID="image-container"
@@ -17,7 +21,7 @@ export default function Image({ src, width, height }: ProfileImageProps) {
         {
           width,
           height,
-          borderRadius: width,
+          borderRadius: borderRadius ?? 0,
         },
       ]}
     >

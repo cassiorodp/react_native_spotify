@@ -1,5 +1,5 @@
 import React from 'react';
-import { routeTags, spacing } from '@/constants/config';
+import { routeTags } from '@/constants/config';
 import { getArtistsData } from '@/api/endpoints';
 import ArtistItem from './ArtistItem';
 import InfiniteFlatList from './InfiniteFlatList';

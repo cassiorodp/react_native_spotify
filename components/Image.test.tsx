@@ -17,7 +17,7 @@ describe('Image component', () => {
 
   it('renders the image with correct dimensions', () => {
     const { getByTestId } = render(
-      <Image src="example.jpg" width={100} height={100} />
+      <Image src="example.jpg" width={100} height={100} borderRadius={100} />
     );
     const imageContainer = getByTestId('image-container');
     expect(imageContainer.props.style[1].width).toBe(100);
