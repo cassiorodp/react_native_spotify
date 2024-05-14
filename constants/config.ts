@@ -38,7 +38,10 @@ export const endpointConfig = {
 export const routeTags = {
   user: 'user',
   artists: 'artists',
-};
+  albuns: 'albuns',
+  playlists: 'playlists',
+  createPlaylist: 'createPlaylist',
+} as const;
 
 export const spacing = {
   xs: width * 0.01,
