@@ -13,7 +13,7 @@ jest.mock('@react-navigation/native', () => ({
 
 jest.mock('expo-router', () => ({
   router: {
-    back: jest.fn(),
+    push: jest.fn(),
   },
 }));
 
@@ -52,6 +52,6 @@ describe('ArtistHeader', () => {
     );
     const backButton = await findByTestId('back-button');
     fireEvent.press(backButton);
-    expect(router.back).toHaveBeenCalled();
+    expect(router.push).toHaveBeenCalled();
   });
 });

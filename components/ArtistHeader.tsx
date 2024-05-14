@@ -19,7 +19,7 @@ export default function ArtistHeader(props: {
 }) {
   const { colors } = useTheme();
   const handleGoBack = () => {
-    router.back();
+    router.push('/tabs/home');
   };
 
   return (
@@ -31,7 +31,7 @@ export default function ArtistHeader(props: {
         <CustomText>{props.artistName}</CustomText>
       </View>
 
-      <Image width={64} height={64} src={props.artistImage} />
+      <Image width={64} height={64} borderRadius={64} src={props.artistImage} />
     </View>
   );
 }
