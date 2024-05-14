@@ -34,7 +34,11 @@ export function Button({
       ]}
     >
       {isLoading ? (
-        <ActivityIndicator size={'small'} color={colors.background} />
+        <ActivityIndicator
+          testID="loading-indicator"
+          size={'small'}
+          color={colors.background}
+        />
       ) : (
         <CustomText type="button">{title}</CustomText>
       )}
