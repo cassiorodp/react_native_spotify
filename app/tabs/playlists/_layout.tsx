@@ -10,6 +10,12 @@ export default function PlaylistsLayout() {
       }}
     >
       <Stack.Screen name="index" />
+      <Stack.Screen
+        name="playlist-modal"
+        options={{
+          presentation: 'modal',
+        }}
+      />
     </Stack>
   );
 }
