@@ -1,17 +1,17 @@
 import { config } from '@/env/config';
 import { getSecureStore } from '@/utils';
-import { isAfter, isBefore } from 'date-fns';
+import { isAfter } from 'date-fns';
 import { useState, useEffect } from 'react';
 
 const useAuth = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   useEffect(() => {
     const getAuthToken = () => {
       const token = getSecureStore(config.tokenStoreKey);
       const expiresIn = getSecureStore(config.tokenStoreExpiryKey);
-      if (token && expiresIn && isBefore(new Date(), new Date(expiresIn))) {
-        setIsAuthenticated(true);
+      if (!token || (expiresIn && isAfter(new Date(), new Date(expiresIn)))) {
+        setIsAuthenticated(false);
       }
     };
     getAuthToken();
