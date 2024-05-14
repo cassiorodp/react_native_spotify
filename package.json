@@ -14,7 +14,8 @@
     "lint": "expo lint",
     "lint-fix": "eslint --fix .",
     "type-check": "tsc --noEmit",
-    "build:dev:android": "eas build --profile development --platform android"
+    "build:dev:android": "eas build --profile development --platform android",
+    "build:preview:android": "eas build --profile preview --platform android"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
