@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { spacing } from '@/env/config';
+import { spacing } from '@/constants/config';
 import { CustomText } from './CustomText';
 import Image from './Image';
 

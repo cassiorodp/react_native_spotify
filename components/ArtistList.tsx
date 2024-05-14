@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import { useInfiniteQuery } from 'react-query';
-import { routeTags, spacing } from '@/env/config';
+import { routeTags, spacing } from '@/constants/config';
 import { getArtistsData } from '@/api/endpoints';
 import { useTheme } from '@react-navigation/native';
 import ArtistItem from './ArtistItem';

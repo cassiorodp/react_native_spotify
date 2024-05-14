@@ -1,4 +1,4 @@
-import { config } from '@/env/config';
+import { config } from '@/constants/config';
 import { getSecureStore } from '@/utils';
 import { isAfter } from 'date-fns';
 import { useState, useEffect } from 'react';

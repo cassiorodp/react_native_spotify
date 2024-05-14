@@ -1,7 +1,7 @@
 import { getSecureStore } from '@/utils';
 import { isAfter } from 'date-fns';
 import useAuth from './useAuth';
-import { config } from '@/env/config';
+import { config } from '@/constants/config';
 import { renderHook } from '@testing-library/react-native';
 
 jest.mock('@/utils', () => ({

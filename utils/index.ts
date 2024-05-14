@@ -1,4 +1,4 @@
-import { config } from '@/env/config';
+import { config } from '@/constants/config';
 import { add, fromUnixTime } from 'date-fns';
 import { TokenResponse } from 'expo-auth-session';
 import * as SecureStore from 'expo-secure-store';

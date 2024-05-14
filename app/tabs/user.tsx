@@ -3,7 +3,7 @@ import React from 'react';
 import { CustomText } from '@/components/CustomText';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useQuery } from 'react-query';
-import { routeTags } from '@/env/config';
+import { routeTags } from '@/constants/config';
 import { getUserData } from '@/api/endpoints';
 import { Button } from '@/components/Button';
 import { clearSecureStore } from '@/utils';

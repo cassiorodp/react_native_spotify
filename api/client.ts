@@ -1,4 +1,8 @@
-import { config as envConfig, endpointConfig, discovery } from '@/env/config';
+import {
+  config as envConfig,
+  endpointConfig,
+  discovery,
+} from '@/constants/config';
 import { getSecureStore, storeToken } from '@/utils';
 import axios from 'axios';
 import { isAfter } from 'date-fns';

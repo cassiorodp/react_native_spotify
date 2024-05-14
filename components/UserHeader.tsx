@@ -2,7 +2,7 @@ import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import React from 'react';
 import { CustomText } from './CustomText';
 import { useQuery } from 'react-query';
-import { routeTags } from '@/env/config';
+import { routeTags } from '@/constants/config';
 import { getUserData } from '@/api/endpoints';
 import Image from './Image';
 import { useTheme } from '@react-navigation/native';

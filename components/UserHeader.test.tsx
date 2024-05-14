@@ -1,5 +1,4 @@
 import UserHeader from './UserHeader';
-import { routeTags } from '@/env/config';
 import { render } from '@/utils/test-utils';
 import { QueryClient, QueryClientProvider } from 'react-query';
 

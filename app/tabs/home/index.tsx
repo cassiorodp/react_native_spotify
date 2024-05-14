@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import UserHeader from '@/components/UserHeader';
-import { spacing } from '@/env/config';
+import { spacing } from '@/constants/config';
 import ArtistList from '@/components/ArtistList';
 
 export default function Index() {
