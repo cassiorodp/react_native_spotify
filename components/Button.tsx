@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, StyleSheet, TouchableOpacity } from 'react-native';
 import { CustomText } from './CustomText';
 import { useTheme } from '@react-navigation/native';
 
@@ -7,6 +7,7 @@ type ButtonProps = React.ComponentProps<typeof TouchableOpacity> & {
   disabled?: boolean;
   activeOpacity?: number;
   title: string;
+  isLoading?: boolean;
 };
 
 export function Button({
@@ -15,6 +16,7 @@ export function Button({
   activeOpacity = 0.8,
   title,
   style,
+  isLoading,
 }: ButtonProps) {
   const { colors } = useTheme();
 
@@ -26,12 +28,16 @@ export function Button({
       style={[
         styles.button,
         {
-          backgroundColor: colors.primary,
+          backgroundColor: disabled ? `${colors.primary}50` : colors.primary,
         },
         style,
       ]}
     >
-      <CustomText type="button">{title}</CustomText>
+      {isLoading ? (
+        <ActivityIndicator size={'small'} color={colors.background} />
+      ) : (
+        <CustomText type="button">{title}</CustomText>
+      )}
     </TouchableOpacity>
   );
 }
