@@ -20,3 +20,21 @@ export const getArtistsData = async ({
   });
   return data;
 };
+
+export const getArtistAlbunsData = async ({
+  limit = 10,
+  page,
+  id,
+}: {
+  limit?: number;
+  page: number;
+  id: string;
+}) => {
+  const data = await axiosInstance.get(`/artists/${id}/albums`, {
+    params: {
+      limit,
+      offset: page * limit,
+    },
+  });
+  return data;
+};
