@@ -27,7 +27,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
           title: 'Artistas',
           tabBarIcon: ({ color }) => (
@@ -36,7 +36,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="playlists"
         options={{
           title: 'Playlists',
           tabBarIcon: ({ color }) => (
