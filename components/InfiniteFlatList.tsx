@@ -12,12 +12,12 @@ import { useTheme } from '@react-navigation/native';
 
 export default function InfiniteFlatList(props: {
   fetchData: (params: { page: number; limit: number }) => Promise<any>;
-  routeTag: keyof typeof routeTags;
+  routeTag: string;
   ItemComponent: React.ComponentType<{ item: any }>;
 }) {
   const { data, isLoading, isRefetching, hasNextPage, fetchNextPage, refetch } =
     useInfiniteQuery(
-      routeTags.artists,
+      props.routeTag,
       ({ pageParam }) =>
         props.fetchData({
           page: pageParam ?? 0,
@@ -25,6 +25,7 @@ export default function InfiniteFlatList(props: {
         }),
       {
         getNextPageParam: (lastPage) => {
+          if (!lastPage.data.next) return undefined;
           const params = new URLSearchParams(
             new URL(lastPage.data.next).search
           );
@@ -37,7 +38,7 @@ export default function InfiniteFlatList(props: {
 
   const { colors } = useTheme();
   return (
-    <View style={styles.container}>
+    <View style={styles.container} key={props.routeTag}>
       {isLoading ? (
         <ActivityIndicator
           style={styles.loading}
