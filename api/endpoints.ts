@@ -38,3 +38,19 @@ export const getArtistAlbunsData = async ({
   });
   return data;
 };
+
+export const getUserPlaylists = async ({
+  limit = 10,
+  page,
+}: {
+  limit?: number;
+  page: number;
+}) => {
+  const data = await axiosInstance.get('/me/playlists', {
+    params: {
+      limit,
+      offset: page * limit,
+    },
+  });
+  return data;
+};
