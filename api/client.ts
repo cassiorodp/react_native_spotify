@@ -14,7 +14,6 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   async (config) => {
-    const token = getSecureStore(envConfig.tokenStoreKey);
     const refreshToken = getSecureStore(envConfig.refreshTokenStoreKey);
     const expiresIn = getSecureStore(envConfig.tokenStoreExpiryKey);
     if (refreshToken && expiresIn && isAfter(new Date(), new Date(expiresIn))) {
@@ -27,6 +26,7 @@ axiosInstance.interceptors.request.use(
       );
       await storeToken(response);
     }
+    const token = getSecureStore(envConfig.tokenStoreKey);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
