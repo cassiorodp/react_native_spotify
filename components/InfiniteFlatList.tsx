@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.lg,
   },
   list: {
-    gap: spacing.md,
+    gap: spacing.lg,
   },
   loading: {
     flex: 1,
