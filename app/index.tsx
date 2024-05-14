@@ -24,7 +24,7 @@ export default function Index() {
 
         if (tokenResponse.accessToken) {
           await storeToken(tokenResponse);
-          router.replace('(tabs)');
+          router.replace('/tabs');
         }
       }
     };
