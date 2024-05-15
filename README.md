@@ -54,6 +54,20 @@
 - Criar uma nova playlist
 - Exibir os dados do usuário
 
+## Escolhas Tecnológicas e Padrões Arquiteturais
+
+Ao desenvolver este projeto, foram feitas as seguintes escolhas tecnológicas e aplicados os seguintes padrões arquiteturais:
+
+### Composição de Componentes:
+
+A Composição de Componentes é um padrão de design que envolve a composição de vários componentes para criar componentes mais complexos. Esse padrão envolve a criação de componentes que podem ser combinados para criar componentes mais complexos, tornando o código mais modular e reutilizável.
+
+### React Native e Expo:
+
+- **React Native:** Foi escolhido como o framework principal para o desenvolvimento da aplicação devido à sua capacidade de criar aplicativos móveis multiplataforma de forma eficiente, utilizando JavaScript como linguagem de programação. O React Native permite o desenvolvimento de interfaces de usuário nativas, oferecendo alto desempenho e uma experiência de usuário suave.
+
+- **Expo:** Foi escolhido como uma ferramenta complementar ao React Native devido à sua facilidade de uso e às numerosas funcionalidades que oferece para o desenvolvimento rápido de aplicativos móveis. O Expo simplifica o processo de desenvolvimento, fornecendo acesso a uma ampla gama de APIs nativas, além de facilitar tarefas como o gerenciamento de dependências, implantação e teste de aplicativos.
+
 <h3>Instruções</h3>
 
 <h3 id="requirements">Requisitos</h3>
@@ -84,7 +98,7 @@ Abaixo estão os requisitos (obrigatórios e bônus).
 <h2 id="running-the-app">🚀 Executando o Aplicativo</h2>
 Para executar o aplicativo, siga estas instruções.
 
-<h3 id="prerequisites">Baixando a Aplicação</h3>
+<h3 id="prerequisites">Baixando a Aplicaçãooooo</h3>
 
 Se você deseja apenas baixar a build da aplicação, você pode acessar o seguinte link para baixar o arquivo de instalação:
 
