@@ -98,7 +98,7 @@ Abaixo estão os requisitos (obrigatórios e bônus).
 <h2 id="running-the-app">🚀 Executando o Aplicativo</h2>
 Para executar o aplicativo, siga estas instruções.
 
-<h3 id="prerequisites">Baixando a Aplicaçãooooo</h3>
+<h3 id="prerequisites">Baixando a Aplicação</h3>
 
 Se você deseja apenas baixar a build da aplicação, você pode acessar o seguinte link para baixar o arquivo de instalação:
 
