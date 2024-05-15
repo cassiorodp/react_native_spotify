@@ -111,7 +111,7 @@ Após baixar o arquivo de instalação, instale o aplicativo em um dispositivo A
 Certifique-se de ter as seguintes ferramentas instaladas: NPM & Git.
 Além disso, se você planeja contribuir posteriormente, é bom ter um editor de código como VSCode.
 
-baixe e instale o aplicativo [Expo Go](https://expo.dev/go) no seu dispositivo Android ou emulador e baixe a [Build de Desenvolvimento](https://expo.dev/accounts/cassiorodp/projects/react-spotify/builds/b28f118f-719f-4936-8dff-7d76b22fd749)
+baixe e instale a [Build de Desenvolvimento](https://expo.dev/accounts/cassiorodp/projects/react-spotify/builds/b28f118f-719f-4936-8dff-7d76b22fd749) no seu dispositivo Android ou emulador
 
 <h3 id="installation">Instalação</h3>
 
