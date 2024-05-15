@@ -18,6 +18,7 @@ export default function SafeAreaViewWithPadding(
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: spacing.lg,
+    paddingTop: spacing.md,
     flex: 1,
   },
 });
