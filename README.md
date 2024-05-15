@@ -4,7 +4,7 @@
   <br />
   <a href="https://github.com/cassiorodp/react_native_spotify" target="_blank">Código Fonte</a>
   ·
-    <a href="https://expo.dev/accounts/cassiorodp/projects/react-spotify/builds/a9a8bae9-5572-4817-adda-6d570189cec2" target="_blank">App</a>
+    <a href="https://expo.dev/accounts/cassiorodp/projects/react-spotify/builds/ed7467ce-3065-4057-b37c-48c2ef0eb96f" target="_blank">App</a>
   ·
   <a href="https://github.com/cassiorodp/react_native_spotify/issues" target="_blank">Reportar Bug</a>
 </p>
@@ -12,7 +12,7 @@
 ---
 
 <p align="center">
-  <a href="https://expo.dev/accounts/cassiorodp/projects/react-spotify/builds/a9a8bae9-5572-4817-adda-6d570189cec2" target="_blank">
+  <a href="https://expo.dev/accounts/cassiorodp/projects/react-spotify/builds/ed7467ce-3065-4057-b37c-48c2ef0eb96f" target="_blank">
  <img src="assets/images/landing_page.png" width='20%'  alt="landingpage project"/>
   </a>
 </p>
@@ -102,7 +102,7 @@ Para executar o aplicativo, siga estas instruções.
 
 Se você deseja apenas baixar a build da aplicação, você pode acessar o seguinte link para baixar o arquivo de instalação:
 
-[Download da Aplicação](https://expo.dev/accounts/cassiorodp/projects/react-spotify/builds/a9a8bae9-5572-4817-adda-6d570189cec2)
+[Download da Aplicação](https://expo.dev/accounts/cassiorodp/projects/react-spotify/builds/ed7467ce-3065-4057-b37c-48c2ef0eb96f)
 
 Após baixar o arquivo de instalação, instale o aplicativo em um dispositivo Android.
 
