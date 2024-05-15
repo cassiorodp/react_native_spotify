@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomItem from './CustomItem';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
 export default function AlbumItem(props: {
   item: {
@@ -15,7 +15,10 @@ export default function AlbumItem(props: {
       imageWidth={72}
       imageSrc={props.item.images[0].url}
       title={props.item.name}
-      subtitle={format(new Date(props.item.release_date), 'dd/MM/yyyy')}
+      subtitle={format(
+        new Date(parseISO(props.item.release_date)),
+        'dd/MM/yyyy'
+      )}
     />
   );
 }
