@@ -2,7 +2,6 @@ import axiosInstance from './client';
 import * as Network from 'expo-network';
 import { getDataFromLocal, saveDataToLocal } from './storage';
 import { routeTags } from '@/constants/config';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const fetchDataWithCache = async ({
   routeTag,
