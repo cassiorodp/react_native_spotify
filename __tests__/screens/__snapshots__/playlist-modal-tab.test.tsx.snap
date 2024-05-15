@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Playlist modal tab component should match snapshot 1`] = `
+<RNCSafeAreaView
+  edges={
+    {
+      "bottom": "additive",
+      "left": "additive",
+      "right": "additive",
+      "top": "additive",
+    }
+  }
+  style={
+    [
+      {
+        "backgroundColor": "rgb(255, 255, 255)",
+      },
+      {
+        "flex": 1,
+        "paddingHorizontal": 30,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "marginLeft": "auto",
+      }
+    }
+  >
+    <Text />
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "column",
+        "gap": 22.5,
+        "marginTop": 37.5,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "rgb(28, 28, 30)",
+          },
+          {
+            "fontFamily": "Rubik-Regular",
+            "fontSize": 16,
+            "lineHeight": 24,
+          },
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      Dê um nome a sua playlist
+    </Text>
+    <TextInput
+      onChangeText={[Function]}
+      style={
+        [
+          {
+            "borderBottomWidth": 0.5,
+            "fontFamily": "Rubik-Bold",
+            "fontSize": 24,
+            "textAlign": "center",
+            "width": "80 %",
+          },
+          {
+            "borderBottomColor": "rgb(216, 216, 216)",
+            "color": "rgb(28, 28, 30)",
+          },
+        ]
+      }
+      testID="playlist-name-input"
+      underlineColorAndroid="transparent"
+      value=""
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": true,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "backgroundColor": "rgb(0, 122, 255)50",
+          "borderRadius": 100,
+          "marginTop": 10,
+          "opacity": 1,
+          "paddingHorizontal": 40,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "rgb(28, 28, 30)",
+            },
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            [
+              {
+                "fontFamily": "Rubik-Bold",
+                "fontSize": 16,
+              },
+              {
+                "color": "rgb(242, 242, 242)",
+              },
+            ],
+            undefined,
+            undefined,
+          ]
+        }
+      >
+        Criar
+      </Text>
+    </View>
+  </View>
+</RNCSafeAreaView>
+`;
